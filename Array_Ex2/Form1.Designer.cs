@@ -43,8 +43,16 @@
             label4 = new Label();
             txtNoVotes = new TextBox();
             label3 = new Label();
+            groupBox3 = new GroupBox();
+            btnTotalBooks = new Button();
+            btnSaveBooks = new Button();
+            txtTotalBooks = new TextBox();
+            label5 = new Label();
+            txtNBooks = new TextBox();
+            label6 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // btnCalculateAverage
@@ -192,11 +200,80 @@
             label3.TabIndex = 6;
             label3.Text = "No. of votes:";
             // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(btnTotalBooks);
+            groupBox3.Controls.Add(btnSaveBooks);
+            groupBox3.Controls.Add(txtTotalBooks);
+            groupBox3.Controls.Add(label5);
+            groupBox3.Controls.Add(txtNBooks);
+            groupBox3.Controls.Add(label6);
+            groupBox3.Location = new Point(366, 29);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(325, 140);
+            groupBox3.TabIndex = 8;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Count";
+            // 
+            // btnTotalBooks
+            // 
+            btnTotalBooks.Location = new Point(235, 30);
+            btnTotalBooks.Name = "btnTotalBooks";
+            btnTotalBooks.Size = new Size(75, 23);
+            btnTotalBooks.TabIndex = 6;
+            btnTotalBooks.Text = "Total Books";
+            btnTotalBooks.UseVisualStyleBackColor = true;
+            btnTotalBooks.Click += btnTotalBooks_Click;
+            // 
+            // btnSaveBooks
+            // 
+            btnSaveBooks.Location = new Point(136, 102);
+            btnSaveBooks.Name = "btnSaveBooks";
+            btnSaveBooks.Size = new Size(75, 23);
+            btnSaveBooks.TabIndex = 6;
+            btnSaveBooks.Text = "Save Books";
+            btnSaveBooks.UseVisualStyleBackColor = true;
+            btnSaveBooks.Click += btnSaveBooks_Click;
+            // 
+            // txtTotalBooks
+            // 
+            txtTotalBooks.Location = new Point(111, 53);
+            txtTotalBooks.Name = "txtTotalBooks";
+            txtTotalBooks.Size = new Size(100, 23);
+            txtTotalBooks.TabIndex = 7;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(39, 61);
+            label5.Name = "label5";
+            label5.Size = new Size(35, 15);
+            label5.TabIndex = 6;
+            label5.Text = "Total:";
+            // 
+            // txtNBooks
+            // 
+            txtNBooks.Location = new Point(111, 22);
+            txtNBooks.Name = "txtNBooks";
+            txtNBooks.Size = new Size(100, 23);
+            txtNBooks.TabIndex = 6;
+            txtNBooks.TextChanged += textBox2_TextChanged;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(31, 30);
+            label6.Name = "label6";
+            label6.Size = new Size(78, 15);
+            label6.TabIndex = 6;
+            label6.Text = "No. of Books:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(537, 362);
+            ClientSize = new Size(734, 362);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "Form1";
@@ -205,6 +282,8 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -225,5 +304,12 @@
         private Button btnSaveVotes;
         private TextBox txtTotalVotes;
         private Button btnTotal;
+        private GroupBox groupBox3;
+        private Button btnTotalBooks;
+        private Button btnSaveBooks;
+        private TextBox txtTotalBooks;
+        private Label label5;
+        private TextBox txtNBooks;
+        private Label label6;
     }
 }

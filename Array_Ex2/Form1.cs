@@ -3,6 +3,7 @@ using System;
 using System.Net.Quic;
 using System.Xml.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Array_Ex2
 {
@@ -20,6 +21,12 @@ namespace Array_Ex2
         int TotalVotes;
 
 
+        int[,,] Books;
+        int index1;
+        int index2;
+        int index3;
+        int TotalBooks;
+
         public Form1()
         {
             InitializeComponent();
@@ -33,6 +40,12 @@ namespace Array_Ex2
             columnindex = 0;
             TotalVotes = 0;
 
+
+            Books = new int[2, 2, 2];
+            index1 = 0;
+            index2 = 0;
+            index3 = 0;
+            TotalBooks = 0;
         }
 
         private void btnAverage_Click(object sender, EventArgs e)
@@ -45,7 +58,7 @@ namespace Array_Ex2
             }
             Average = Sum / Qualifications.Length;
             txtAverage.Text = Convert.ToString(Average);
-            Sum= 0;
+            Sum = 0;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -121,17 +134,90 @@ namespace Array_Ex2
 
         private void btnTotal_Click(object sender, EventArgs e)
         {
-           
-                for (int i = 0; i < Votes.GetLength(0); i++)
+
+            for (int i = 0; i < Votes.GetLength(0); i++)
+            {
+                for (int j = 0; j < Votes.GetLength(1); j++)
                 {
-                    for (int j = 0; j < Votes.GetLength(1); j++)
-                    {
-                    TotalVotes= TotalVotes + Votes[i, j];
-                    }
+                    TotalVotes = TotalVotes + Votes[i, j];
                 }
+            }
 
             txtTotalVotes.Text = Convert.ToString(TotalVotes);
             TotalVotes = 0;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveBooks_Click(object sender, EventArgs e)
+        {
+            string data = "";
+            if (index1 == Books.GetLength(0) && index2 == Books.GetLength(1) && index3 == Books.GetLength(2))
+            {
+                for (int i = 0; i < Books.GetLength(0); i++)
+                {
+                    for (int j = 0; j < Books.GetLength(1); j++)
+                    {
+                        for (int k = 0; k < Books.GetLength(2); k++)
+                        {
+                            data += Books[i, j, k];
+                        }
+                    }
+                }
+            }
+
+            try
+            {
+                Books[index1, index2, index3++] = Convert.ToInt32(txtNBooks.Text);
+                if (index3 == Books.GetLength(2))
+                {
+                    index2++;
+                    index3 = 0;
+                }
+                if (index2 == Books.GetLength(1))
+                {
+                    index1++;
+                    index2 = 0;
+                    index3 = 0;
+                }
+            }
+
+            catch (System.IndexOutOfRangeException)
+            {
+                MessageBox.Show("Array is full:");
+                //Career = new string[2, 3, 2];
+                index2 = 0;
+                index3 = 0;
+                return;
+            }
+            catch (FormatException exe)
+            {
+                MessageBox.Show("Incorrect format, an integer is required. ");
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.Message + " ");
+            }
+        }
+
+        private void btnTotalBooks_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Books.GetLength(0); i++)
+            {
+                for (int j = 0; j < Books.GetLength(1); j++)
+                {
+                    for (int k = 0; k < Books.GetLength(2); k++)
+                    {
+                        TotalBooks = TotalBooks + Books[i, j, k];
+                    }
+                }
+            }
+
+            txtTotalBooks.Text = Convert.ToString(TotalBooks);
+            TotalBooks = 0;
         }
     }
 }
