@@ -105,7 +105,6 @@ namespace Array_Ex2
             catch (System.IndexOutOfRangeException)
             {
                 MessageBox.Show("Matrix is full:" + data2);
-                //Votes = new int[2, 7];
                 rowindex = 0;
                 columnindex = 0;
                 return;
