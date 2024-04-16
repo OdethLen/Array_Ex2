@@ -130,7 +130,7 @@ namespace Array_Ex2
                     }
                 }
 
-            txtTotalVotes.Text = TotalVotes.ToString();
+            txtTotalVotes.Text = Convert.ToString(TotalVotes);
         }
     }
 }
