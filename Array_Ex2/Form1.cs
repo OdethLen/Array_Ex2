@@ -45,6 +45,7 @@ namespace Array_Ex2
             }
             Average = Sum / Qualifications.Length;
             txtAverage.Text = Convert.ToString(Average);
+            Sum= 0;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -104,7 +105,7 @@ namespace Array_Ex2
             catch (System.IndexOutOfRangeException)
             {
                 MessageBox.Show("Matrix is full:" + data2);
-                Votes = new int[2, 7];
+                //Votes = new int[2, 7];
                 rowindex = 0;
                 columnindex = 0;
                 return;
@@ -131,6 +132,7 @@ namespace Array_Ex2
                 }
 
             txtTotalVotes.Text = Convert.ToString(TotalVotes);
+            TotalVotes = 0;
         }
     }
 }
